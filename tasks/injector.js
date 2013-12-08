@@ -16,8 +16,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('injector', 'Insert code from one file into another.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      removeComments: true
     });
 
     // Iterate over all specified file groups.
