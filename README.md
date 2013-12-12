@@ -1,6 +1,8 @@
 # grunt-injector
 
 > Insert code from one file into another.
+Useful when you want to build a single file containing everything it needs for initial rendering. Such as on mobile, where the number of requests directly effects user experience.
+At the moment it only overwrites the destination file. So be careful to consider that in the build process.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -37,36 +39,48 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+**This doesn't exist yet.**
+#### options.backup
+Type: `Boolean`
+Default value: false
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+All for a backup file to be written for each build. It stores the original file before any and all injections.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example the javascript is contained in a separate file for development purposes. Then stuffed in the *<script>* tag of the html file.
 
 ```js
 grunt.initConfig({
   injector: {
     options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    main: {
+      src: "lib/js/stuff.js",
+		dest: "dist/html/index.html",
+		match: "//Stuff it here"
     },
   },
 });
 ```
 
+Then in the destination file ,*index.html*, make sure you place the *match* string wherever you want source code to be placed. It could look something like this
+```html
+<!doctype html>
+<html>
+	<head>
+		<script>
+			//Stuff it here
+		</script>
+	</head>
+	<body>
+		Blah blah.
+	</body>
+</html>
+```
+
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+**These don't exist yet.**
 
 ```js
 grunt.initConfig({
