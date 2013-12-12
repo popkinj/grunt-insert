@@ -43,8 +43,13 @@ module.exports = function(grunt) {
 
 			var result = dest.replace(f.match,src);
 
-			// Write the destination file.
+			// Write the temporary destination file.
 			grunt.file.write(f.dest+"_tmp", result);
+
+			// overwrite the original with the temporary file
+			grunt.file['delete'](f.dest);
+			grunt.file.copy(f.dest+"_tmp", f.dest);
+			grunt.file['delete'](f.dest+"_tmp");
 
 			// Print a success message.
 			var input = f.src.toString().replace(/.*\//,""); // Remove path
