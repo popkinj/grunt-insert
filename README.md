@@ -50,7 +50,7 @@ All for a backup file to be written for each build. It stores the original file 
 ### Usage Examples
 
 #### Default Options
-In this example the javascript is contained in a separate file for development purposes. Then stuffed in the *<script>* tag of the html file.
+In this example the javascript is contained in a separate file for development purposes. Then stuffed in the *script* tag of the html file.
 
 ```js
 grunt.initConfig({
