@@ -1,6 +1,7 @@
 # grunt-injector
 
 > Insert code from one file into another.
+
 Useful when you want to build a single file containing everything it needs for initial rendering. Such as on mobile, where the number of requests directly effects user experience.
 At the moment it only overwrites the destination file. So be careful to consider that in the build process.
 
