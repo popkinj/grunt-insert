@@ -41,17 +41,15 @@ module.exports = function(grunt) {
 				var dest = grunt.file.read(f.dest); // Read file source.
 			}
 
-			var reg = new RegExp(".*"+f.match+".*");
-			grunt.log.warn(reg);
 			var result = dest.replace(f.match,src);
-			// grunt.log.warn(f.match);
-			grunt.log.warn(result);
 
 			// Write the destination file.
-			// grunt.file.write(f.dest, src);
+			grunt.file.write(f.dest+"_tmp", result);
 
-			// // Print a success message.
-			// grunt.log.writeln('File "' + f.dest + '" created.');
+			// Print a success message.
+			var input = f.src.toString().replace(/.*\//,""); // Remove path
+			var output = f.dest.toString().replace(/.*\//,""); // Remove path
+			grunt.log.writeln("Injected " + input + " into " + output);
 		});
 	});
 
