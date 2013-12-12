@@ -55,11 +55,11 @@ In this example the javascript is contained in a separate file for development p
 grunt.initConfig({
   injector: {
     options: {},
-    main: {
-      src: "lib/js/stuff.js",
+	 main: {
+		src: "lib/js/stuff.js",
 		dest: "dist/html/index.html",
 		match: "//Stuff it here"
-    },
+	},
   },
 });
 ```
@@ -77,23 +77,6 @@ Then in the destination file ,*index.html*, make sure you place the *match* stri
 		Blah blah.
 	</body>
 </html>
-```
-
-#### Custom Options
-**These don't exist yet.**
-
-```js
-grunt.initConfig({
-  injector: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
 ```
 
 ## Contributing
