@@ -40,12 +40,14 @@ module.exports = function(grunt) {
 			} else {
 				var dest = grunt.file.read(f.dest); // Read file source.
 			}
-			grunt.log.warn(dest);
 
-			// // Handle options.
-			// src += options.punctuation;
+			var reg = new RegExp(".*"+f.match+".*");
+			grunt.log.warn(reg);
+			var result = dest.replace(f.match,src);
+			// grunt.log.warn(f.match);
+			grunt.log.warn(result);
 
-			// // Write the destination file.
+			// Write the destination file.
 			// grunt.file.write(f.dest, src);
 
 			// // Print a success message.
