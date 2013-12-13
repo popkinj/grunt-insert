@@ -40,12 +40,12 @@ grunt.initConfig({
 
 ### Options
 
-**This doesn't exist yet.**
 #### options.backup
 Type: `Boolean`
 Default value: false
 
-All for a backup file to be written for each build. It stores the original file before any and all injections.
+**This doesn't exist yet.**
+For a backup file to be written for each build. It stores the original file before any and all insertion.
 
 ### Usage Examples
 
