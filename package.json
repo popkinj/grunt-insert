@@ -1,8 +1,8 @@
 {
-  "name": "grunt-injector",
+  "name": "grunt-insert",
   "description": "Insert code from one file into another.",
   "version": "0.1.0",
-  "homepage": "https://github.com/grunt-injector",
+  "homepage": "https://github.com/grunt-insert",
   "author": {
     "name": "Jamie Popkin",
     "email": "popkinj@littleearth.ca",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/grunt-injector"
+    "url": "git://github.com/grunt-insert"
   },
   "bugs": {
-    "url": "https://github.com/grunt-injector/issues"
+    "url": "https://github.com/grunt-insert/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/grunt-injector/blob/master/LICENSE-MIT"
+      "url": "https://github.com/grunt-insert/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
@@ -39,7 +39,7 @@
   },
   "keywords": [
     "gruntplugin",
-	 "inject",
+	 "insert",
 	 "build",
 	 "merge",
 	 "concatenate"

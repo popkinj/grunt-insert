@@ -22,7 +22,7 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.injector = {
+exports.insert = {
   setUp: function(done) {
     // setup here if necessary
     done();

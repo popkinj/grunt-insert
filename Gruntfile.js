@@ -1,6 +1,6 @@
 /*
- * grunt-injector
- * https://github.com/grunt-injector
+ * grunt-insert
+ * https://github.com/grunt-insert
  *
  * Copyright (c) 2013 Jamie Popkin
  * Licensed under the MIT license.
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    injector: {
+    insert: {
       default_options: {
         options: {
         },
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'injector', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'insert', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
