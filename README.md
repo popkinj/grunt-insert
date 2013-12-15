@@ -40,12 +40,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.backup
-Type: `Boolean`
-Default value: false
+#### options.remove
+Type: `string`
+Default value: null
 
-**This doesn't exist yet.**
-For a backup file to be written for each build. It stores the original file before any and all insertion.
+Specify a string to be removed from the source code.
 
 ### Usage Examples
 
@@ -65,7 +64,7 @@ grunt.initConfig({
 });
 ```
 
-Then in the destination file ,*index.html*, make sure you place the *match* string wherever you want source code to be placed. It could look something like this
+Then in the destination file, *index.html*, make sure you place the *match* string wherever you want source code to be placed. It could look something like this
 ```html
 <!doctype html>
 <html>
