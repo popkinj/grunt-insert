@@ -40,13 +40,13 @@ module.exports = function(grunt) {
 			} else {
 				var dest = grunt.file.read(f.dest); // Read file source.
 			}
-			
+
 			// If a removal is specified
 			if (f.remove) {
-				result = dest.replace(f.remove,"");
+				src = src.replace(f.remove,"");
 			}
 
-			var result = result.replace(f.match,src);
+			var result = dest.replace(f.match,src);
 			
 			// Write the temporary destination file.
 			grunt.file.write(f.dest+"_tmp", result);
