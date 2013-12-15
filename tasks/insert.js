@@ -41,10 +41,14 @@ module.exports = function(grunt) {
 				var dest = grunt.file.read(f.dest); // Read file source.
 			}
 
+			// Escape any dollar signs
+			src = src.toString().replace(/\$/g,"$$$$");
+
 			// If a removal is specified
 			if (f.remove) {
 				src = src.replace(f.remove,"");
 			}
+
 
 			var result = dest.replace(f.match,src);
 			
