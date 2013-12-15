@@ -58,11 +58,12 @@ grunt.initConfig({
 	 main: {
 		src: "lib/js/stuff.js",
 		dest: "dist/html/index.html",
-		match: "//Stuff it here"
+		match: /\/\/Stuff it here/
 	},
   },
 });
 ```
+Note the match parameter is actually a regular expression.
 
 Then in the destination file, *index.html*, make sure you place the *match* string wherever you want source code to be placed. It could look something like this
 ```html
