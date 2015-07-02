@@ -2,7 +2,7 @@
  * grunt-injector
  * https://github.com/grunt-injector
  *
- * Copyright (c) 2013 Jamie Popkin
+ * Copyright (c) 2015 Jamie Popkin, David Hariri
  * Licensed under the MIT license.
  */
 
