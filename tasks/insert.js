@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 
-	grunt.registerMultiTask('insert', 'Insert code from one file into another.', function() {
+	grunt.registerMultiTask('insert', 'Insert code from one file into another file(s).', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
 			removeComments: true
