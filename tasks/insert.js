@@ -2,7 +2,7 @@
  * grunt-injector
  * https://github.com/grunt-injector
  *
- * Copyright (c) 2013 Jamie Popkin
+ * Copyright (c) 2015 Jamie Popkin, David Hariri
  * Licensed under the MIT license.
  */
 
@@ -13,10 +13,10 @@ module.exports = function(grunt) {
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gruntjs.com/creating-tasks
 
-	grunt.registerMultiTask('insert', 'Insert code from one file into another.', function() {
+	grunt.registerMultiTask('insert', 'Insert code from one file into another file(s).', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
-				removeComments: true
+			removeComments: true
 		});
 
 		// Iterate over all specified file groups.
@@ -33,39 +33,32 @@ module.exports = function(grunt) {
 			}).map(function(filepath) {
 				return grunt.file.read(filepath); // Read file source.
 			});
-
-			// Read destination file
-			if (!grunt.file.exists(f.dest)) {
-				grunt.log.warn('Destination file "' + f.dest + '" not found.');
-			} else {
-				var dest = grunt.file.read(f.dest); // Read file source.
-			}
-
-			// Escape any dollar signs
-			src = src.toString().replace(/\$/g,"$$$$");
-
-			// If a removal is specified
-			if (f.remove) {
-				src = src.replace(f.remove,"");
-			}
-
-
-			var result = dest.replace(f.match,src);
 			
-			// Write the temporary destination file.
-			grunt.file.write(f.dest+"_tmp", result);
-
-
-			// overwrite the original with the temporary file
-			grunt.file['delete'](f.dest);
-			grunt.file.copy(f.dest+"_tmp", f.dest);
-			grunt.file['delete'](f.dest+"_tmp");
-
-			// Print a success message.
-			var input = f.src.toString().replace(/.*\//,""); // Remove path
-			var output = f.dest.toString().replace(/.*\//,""); // Remove path
-			grunt.log.writeln("Injected " + input + " into " + output);
+			// Expand the file destination(s).
+			f.dests = grunt.file.expand(f.dest);
+			// Iterate through the result, applying the inserts.
+			if(f.dests.length > 0) {
+				f.dests.forEach(function(dest) {
+					// Read destination file
+					var result = grunt.file.read(dest).replace(f.match,src);
+	
+					// Write the temporary destination file.
+					grunt.file.write(dest+"_tmp", result);
+	
+					// overwrite the original with the temporary file
+					grunt.file['delete'](dest);
+					grunt.file.copy(dest+"_tmp", dest);
+					grunt.file['delete'](dest+"_tmp");
+	
+					// Print a success message.
+					var input = f.src.toString().replace(/.*\//,""); // Remove path
+					var output = dest.toString().replace(/.*\//,""); // Remove path
+	
+					grunt.log.writeln("Injected " + input + " into " + output);
+				});
+			} else {
+				grunt.log.writeln("No valid destination file(s) specified");
+			}
 		});
 	});
-
 };

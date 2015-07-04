@@ -49,7 +49,7 @@ Specify a string to be removed from the source code.
 ### Usage Examples
 
 #### Default Options
-In this example the javascript is contained in a separate file for development purposes. Then stuffed in the *script* tag of the html file.
+In this example the javascript is contained in a separate file for development purposes and stuffed in the *script* tag of the html file(s). You can specify a single path here or multiple paths using asterisks (see below).
 
 ```js
 grunt.initConfig({
@@ -57,7 +57,7 @@ grunt.initConfig({
     options: {},
 	 main: {
 		src: "lib/js/stuff.js",
-		dest: "dist/html/index.html",
+		dest: "dist/html/*.html",
 		match: /\/\/Stuff it here/
 	},
   },
@@ -65,7 +65,7 @@ grunt.initConfig({
 ```
 Note the match parameter is actually a regular expression.
 
-Then in the destination file, *index.html*, make sure you place the *match* string wherever you want source code to be placed. It could look something like this
+Then in the destination files: *index.html*, *etc.html* etc... make sure you place the *match* string wherever you want source code to be placed. It could look something like this:
 ```html
 <!doctype html>
 <html>
@@ -84,4 +84,4 @@ Then in the destination file, *index.html*, make sure you place the *match* stri
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+See "releases" tab at the top
