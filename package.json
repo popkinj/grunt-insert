@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/grunt-insert"
+    "url": "git://github.com/popkinj/grunt-insert"
   },
   "bugs": {
-    "url": "https://github.com/grunt-insert/issues"
+    "url": "https://github.com/popkinj/grunt-insert/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/grunt-insert/blob/master/LICENSE-MIT"
+      "url": "https://github.com/popkinj/grunt-insert/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
@@ -35,7 +35,7 @@
     "grunt": "~0.4.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": ">=0.4.1"
   },
   "keywords": [
     "gruntplugin",
