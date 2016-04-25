@@ -16,7 +16,8 @@ module.exports = function(grunt) {
 	grunt.registerMultiTask('insert', 'Insert code from one file into another.', function() {
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
-				removeComments: true
+				removeComments: true,
+				force: false
 		});
 
 		// Iterate over all specified file groups.
@@ -57,9 +58,9 @@ module.exports = function(grunt) {
 
 
 			// overwrite the original with the temporary file
-			grunt.file['delete'](f.dest);
+			grunt.file['delete'](f.dest, { force: options.force });
 			grunt.file.copy(f.dest+"_tmp", f.dest);
-			grunt.file['delete'](f.dest+"_tmp");
+			grunt.file['delete'](f.dest+"_tmp", { force: options.force });
 
 			// Print a success message.
 			var input = f.src.toString().replace(/.*\//,""); // Remove path
